@@ -1,0 +1,43 @@
+BASE_YAML: "COCO-Detection/faster_rcnn_R_101_C4_3x.yaml"
+DATASETS:
+        TRAIN: ("daytime_clear_train",)
+        TEST: ('daytime_clear_test',)
+DATALOADER:
+        NUM_WORKERS: 8
+INPUT:
+        MIN_SIZE_TRAIN: (600,)
+        MIN_SIZE_TEST: 600
+        CLIP_RANDOM_CROPS: TRUE
+        RANDOM_CROP_SIZE: 400
+
+SOLVER:
+        BASE_LR: 0.001
+        MAX_ITER: 200000
+        STEPS: [50000,]
+        WARMUP_ITERS: 0
+        IMS_PER_BATCH: 4
+        CHECKPOINT_PERIOD: 1000000
+MODEL:
+        WEIGHTS: "models/swin_base_patch4_window7_224_22k.pkl"
+        BACKBONE:
+          NAME: build_swintransformer_fpn_backbone
+        SWIN:
+          SIZE: B-22k
+        FPN:
+          IN_FEATURES: [ "swin0", "swin1", "swin2", "swin3" ]
+#          OUT_FEATURES: ["res2", "res3", "res4", "res5"]
+        CLIP_IMAGE_ENCODER_NAME: 'RN101'
+        META_ARCHITECTURE: 'ClipRCNNWithClipBackboneWithOffsetGenTrainable'
+
+        PROPOSAL_GENERATOR:
+                NAME: 'SBRPN'
+        ROI_HEADS:
+                NAME: 'ClipRes5ROIHeadsAttn'        
+                # BATCH_SIZE_PER_IMAGE: 128   # faster, and good enough for this toy dataset (default: 512)
+                NUM_CLASSES: 7
+TEST:
+        EVAL_SAVE_PERIOD: 5000
+OUTPUT_DIR: "all_outs/diverse_weather_oral_swin"
+VIS_PERIOD: 5000
+OFFSET_OPT_INTERVAL: [2000000]
+OFFSET_OPT_ITERS: 1000
