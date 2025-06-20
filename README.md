@@ -3,9 +3,9 @@
 ##### Official implementation of ["Style Evolving along Chain-of-Thought for Unknown-Domain Object Detection"], Zihao Zhang, Aming Wu, Yahong Han
 
 ![image](pic/f2.jpg)
-## 3. Usage
+##  Usage
 
-### 3.1 Prepare Data
+###  Prepare Data
 
 
 - **Object Detection**:  
@@ -36,7 +36,7 @@
 - clip: `1.0`  
 - detectron2: `0.6`
 
-> Note: Ensure CUDA and PyTorch versions are compatible.
+
 
 ### 3.3 Train and Test
 
@@ -44,4 +44,5 @@
 
 CUDA_VISIBLE_DEVICES=0 python train.py --config-file configs/diverse_weather.yaml
 Test on Target Domain (e.g., Daytime-Foggy)
+
 python train.py --config-file configs/diverse_weather_foggy_test.yaml --eval-only MODEL.WEIGHTS all_outs/diverse_weather/model_best.pth >
