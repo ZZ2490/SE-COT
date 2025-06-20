@@ -38,7 +38,7 @@
 
 
 
-### 3.3 Train and Test
+###  Train and Test
 
 #### Train on Source Domain
 
