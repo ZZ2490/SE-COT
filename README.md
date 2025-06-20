@@ -17,7 +17,7 @@
   - Night-Rainy  
   - Daytime-Foggy
  
-   **eneralization from Reality to Art**  
+   **Generalization from Reality to Art**  
   Contains Four conditions:  
   - Real  
   - Clipart  
@@ -43,6 +43,7 @@
 #### Train on Source Domain
 
 CUDA_VISIBLE_DEVICES=0 python train.py --config-file configs/diverse_weather.yaml
+
 Test on Target Domain (e.g., Daytime-Foggy)
 
-python train.py --config-file configs/diverse_weather_foggy_test.yaml --eval-only MODEL.WEIGHTS all_outs/diverse_weather/model_best.pth >
+python train.py --config-file configs/diverse_weather_foggy_test.yaml --eval-only MODEL.WEIGHTS all_outs/diverse_weather/model_best.pth 
