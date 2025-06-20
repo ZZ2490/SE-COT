@@ -42,9 +42,6 @@
 
 #### Train on Source Domain
 
-```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --config-file configs/diverse_weather.yaml
 Test on Target Domain (e.g., Daytime-Foggy)
-bash
-
 python train.py --config-file configs/diverse_weather_foggy_test.yaml --eval-only MODEL.WEIGHTS all_outs/diverse_weather/model_best.pth >
