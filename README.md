@@ -16,8 +16,16 @@
   - Dusk-Rainy  
   - Night-Rainy  
   - Daytime-Foggy
+ 
+   **eneralization from Reality to Art**  
+  Contains Four conditions:  
+  - Real  
+  - Clipart  
+  - Watercolor  
+  - Comic  
 
-### 3.2 Dependencies
+
+### Dependencies
 
 - Python: `3.8.1`  
 - PyTorch: `1.10.1`  
@@ -30,9 +38,12 @@
 
 > Note: Ensure CUDA and PyTorch versions are compatible.
 
-### 3.3 Train and Test
+### Train and Test
 
 #### Train on Source Domain
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --config-file configs/diverse_weather.yaml
+
+### Acknowledgement
+Our code is based on Detectron2.
